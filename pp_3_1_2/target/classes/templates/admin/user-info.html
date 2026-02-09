@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+<h2>Add new User!</h2>
+
+<form th:action="@{/admin/saveUser}" method="post" th:object="${user}">
+
+    <input type="hidden" name="id" th:value="${user.id}" />
+
+    Name:
+    <label for="firstName"></label>
+    <input type="text" th:field="*{firstName}" id="firstName">
+    <br><br>
+
+    Surname:
+    <label for="secondName"></label>
+    <input type="text" th:field="*{secondName}" id="secondName">
+    <br><br>
+
+    Department:
+    <label>
+        <select th:field="*{department}" required>
+            <option value="">Выберете департамент</option>
+            <option value="IT">IT</option>
+            <option value="HR">HR</option>
+            <option value="Sales">Sales</option>
+            <option value="Marketing">Marketing</option>
+        </select>
+    </label>
+    <br><br>
+
+    Salary:
+    <label>
+        <input type="number" th:field="*{salary}" />
+    </label>
+    <br><br>
+
+    Login:
+    <label>
+        <input type="text" th:field="*{username}" />
+    </label>
+    <br><br>
+
+    Password:
+    <label>
+        <input type="password" th:field="*{password}"
+        placeholder="Без изменений=старый пароль"/>
+    </label>
+    <br><br>
+
+    Roles:
+    <br>
+    <label>
+        <input type="checkbox" name="role" value="ROLE_USER"
+               th:checked="${user.hasRole('ROLE_USER')}">
+        User
+    </label>
+    <label>
+        <input type="checkbox" name="role" value="ROLE_ADMIN"
+               th:checked="${user.hasRole('ROLE_ADMIN')}">
+        Admin
+    </label>
+    <br><br>
+
+    <button type="submit">Save</button>
+</form>
+<br>
+<input type="button" value="LogOut" onclick="window.location.href= '/logout' ">
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+
+<h1>HELLO BUDDY THIS IS YOUR INFO</h1>
+
+<h2>Name: <span  th:text="${user.firstName}"></span></h2>
+<h2>Surname: <span  th:text="${user.secondName}"></span></h2>
+<h2>Department: <span  th:text="${user.department}"></span></h2>
+<h2>Salary: <span  th:text="${user.salary}"></span></h2>
+<h2>Login: <span  th:text="${user.username}"></span></h2>
+<h2>Password: <span  th:text="${user.password}"></span></h2>
+
+<br>
+<input type="button" value="LogOut" onclick="window.location.href= '/logout' ">
+<br><br>
+<input type="button" value="Admin" onclick="window.location.href= '/admin/' ">
+
+</body>
+</html>
